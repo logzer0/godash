@@ -1,4 +1,4 @@
-package main
+package niff
 
 import (
 	"fmt"
@@ -11,27 +11,8 @@ import (
 	"github.com/google/gopacket/pcap"
 )
 
-func main() {
-	SnifferStart()
-}
+//type fn func(string)
 
-/*
-func scan() (string, error) {
-
-	application_name := "arp"
-	arg_0 := "-a"
-
-	cmd := exec.Command(application_name, arg_0)
-	out, err := cmd.Output()
-
-	if err != nil {
-		fmt.Println(err.Error())
-		return "", err
-	}
-
-	return string(out), nil
-}
-*/
 var DashMacs = map[string]func(){}
 var State = map[string]bool{}
 
