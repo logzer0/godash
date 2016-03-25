@@ -10,4 +10,5 @@ after_success:
   - bash <(curl -s https://codecov.io/bash)
   
 install:
+  sudo apt-get install libpcap-dev
   go get github.com/google/gopacket/pcap
