@@ -2,7 +2,9 @@ package main
 
 import (
 	"log"
+	"math/rand"
 	"net/url"
+	"time"
 
 	"github.com/ChimeraCoder/anaconda"
 	"github.com/go-ini/ini"
@@ -18,6 +20,17 @@ const (
 	macAddress     = "mac address of the dash button here"
 )
 
+var (
+	statements = []string{
+		"PHP is the coolest language",
+		"I love Javascript",
+		"I love working with Internet Explorer",
+		"Functional programming is overrated",
+		"LISP is for losers",
+		"Windows phone is the next big thing",
+	}
+)
+
 func main() {
 	// Define buttons and action function
 	DashMacs[macAddress] = Tweet
@@ -31,7 +44,8 @@ func NoAction() {
 }
 
 func Tweet() {
-	PostTweet("Testing now")
+	rand.Seed(time.Now().UTC().UnixNano())
+	PostTweet(statements[rand.Intn(len(statements))])
 }
 
 func PostTweet(tweet string) {
