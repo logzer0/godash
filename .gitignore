@@ -28,3 +28,7 @@ _testmain.go
 *.go.swp
 
 godash
+
+
+#Do not expose the keys
+constants.go
