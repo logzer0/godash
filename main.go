@@ -10,9 +10,17 @@ import (
 
 var Config *ini.File
 
+const (
+	consumerKey    = "your key here"
+	consumerSecret = "your secret here"
+	accessToken    = "your token here"
+	accessSecret   = "your secret here"
+	macAddress     = "mac address of the dash button here"
+)
+
 func main() {
 	// Define buttons and action function
-	DashMacs["74:c2:46:84:f5:ee"] = Tweet
+	DashMacs[macAddress] = Tweet
 
 	// Kick it off!
 	SnifferStart()
