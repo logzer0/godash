@@ -1,27 +1,21 @@
 package main
 
 import (
-	"fmt"
-	"github.com/google/gopacket/pcap"
 	"log"
+
+	"github.com/go-ini/ini"
 )
 
-func main() {
-	// Find all devices
-	devices, err := pcap.FindAllDevs()
-	if err != nil {
-		log.Fatal(err)
-	}
+var Config *ini.File
 
-	// Print device information
-	fmt.Println("Devices found:")
-	for _, device := range devices {
-		fmt.Println("\nName: ", device.Name)
-		fmt.Println("Description: ", device.Description)
-		fmt.Println("Devices addresses: ", device.Description)
-		for _, address := range device.Addresses {
-			fmt.Println("- IP address: ", address.IP)
-			fmt.Println("- Subnet mask: ", address.Netmask)
-		}
-	}
+func main() {
+	// Define buttons and action function
+	DashMacs["74:c2:46:84:f5:ee"] = NoAction
+
+	// Kick it off!
+	SnifferStart()
+}
+
+func NoAction() {
+	log.Println("No action on click.")
 }
