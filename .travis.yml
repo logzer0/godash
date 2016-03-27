@@ -9,6 +9,7 @@ install:
   - sudo apt-get install libpcap-dev
   - go get github.com/google/gopacket
   - go get github.com/go-ini/ini
+  - go get github.com/ChimeraCoder/anaconda
 
 script:
   - go test -coverprofile=coverage.txt -covermode=atomic
