@@ -7,7 +7,7 @@ sudo: required
 
 install:
         sudo apt-get install libpcap-dev
-        github.com/google/gopacket
+        go get github.com/google/gopacket
         go get github.com/go-ini/ini
 
 script:
